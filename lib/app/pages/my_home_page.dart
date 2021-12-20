@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/app/components/recipe_card.dart';
 import 'package:recipes/app/models/recipe_model.dart';
 import 'package:recipes/app/pages/recipes_detail_page.dart';
 import 'package:recipes/app/repository/recipes_repository.dart';
@@ -32,36 +33,8 @@ class _MyHomePageState extends State<MyHomePage> {
                      }
                    ));
                 },
-                child: buildRecipeCard(recipes[index]),);
+                child: RecipeCard(recipe: recipes[index]),);
             }),
-      ),
-    );
-  }
-
-  Widget buildRecipeCard(Recipe recipe) {
-    return Card(
-      elevation: 2.0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Image(image: AssetImage(recipe.imageUrl)),
-            const SizedBox(
-              height: 14.0,
-            ),
-            Text(
-              recipe.label,
-              style: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w700,
-                fontFamily: 'Palatino'
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
